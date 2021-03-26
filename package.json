@@ -1,0 +1,16 @@
+{
+  "name": "chess-data-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alvaro Reis <alvaro.neto@linx3.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
