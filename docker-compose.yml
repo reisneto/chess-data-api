@@ -9,9 +9,9 @@ services:
     volumes:
       - .:/home/node/code
     depends_on:
-      - cache
+      - redis
 
-  cache:
+  redis:
     image: redis
     ports:
       - 6379:6379

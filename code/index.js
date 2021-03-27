@@ -1,4 +1,5 @@
 const express = require("express");
+const cache = require("./clients/Cache");
 const app = express();
 const PORT = 3000;
 
@@ -6,13 +7,14 @@ app.get("/status", (request, response) => {
   return response.json({ status: "online" });
 });
 
-app.get("/username/:username", (request, response) => {
+app.get("/username/:username", async (request, response) => {
   const { username } = request.params;
-  // check username in redis
-  // check username inside our database
-  // check username on chess.com
+  const cached = await cache.get(`player:${username}`);
+  if (cached) {
+    return response.json(JSON.parse(playerString));
+  }
 
-  return response.json({ received: username });
+  return response.json({ message: "username not found" });
 });
 
 app.listen(PORT, () => {

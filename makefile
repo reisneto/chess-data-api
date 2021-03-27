@@ -2,6 +2,10 @@
 start:
 	docker-compose up -d
 
+.PHONY: stop
+stop:
+	docker-compose down
+
 .PHONY: logs
 logs:
 	docker-compose logs -f --tail 100 api 

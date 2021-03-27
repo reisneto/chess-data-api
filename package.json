@@ -8,7 +8,8 @@
     "start:dev": "nodemon code/index.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ioredis": "^4.24.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
