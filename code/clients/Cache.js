@@ -1,9 +1,9 @@
-const Redis = require("ioredis");
+const Redis = require('ioredis');
 
 class Cache {
   constructor() {
     this.redis = new Redis({
-      host: "redis",
+      host: 'redis',
       port: 6379,
     });
   }
@@ -11,7 +11,8 @@ class Cache {
   async get(key) {
     const result = await this.redis.get(key);
 
-    return result ? result : null;
+    if (result) return result;
+    return null;
   }
 
   async set(key, value) {

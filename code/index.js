@@ -1,15 +1,15 @@
-const express = require("express");
-const cache = require("./clients/Cache");
-const chessService = require("./services/chess");
+const express = require('express');
+const cache = require('./clients/Cache');
+const chessService = require('./services/chess');
 
 const app = express();
 const PORT = 3000;
 
-app.get("/status", (request, response) => {
-  return response.status(200).json({ status: "online" });
+app.get('/status', (request, response) => {
+  return response.status(200).json({ status: 'online' });
 });
 
-app.get("/username/:username", async (request, response) => {
+app.get('/username/:username', async (request, response) => {
   const { username } = request.params;
   const playerCached = await cache.get(`player:${username}`);
   if (playerCached) {
@@ -22,7 +22,7 @@ app.get("/username/:username", async (request, response) => {
     return response.status(200).json(player);
   }
 
-  return response.status(404).json({ message: "username not found" });
+  return response.status(404).json({ message: 'username not found' });
 });
 
 app.listen(PORT, () => {

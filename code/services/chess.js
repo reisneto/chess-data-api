@@ -1,20 +1,24 @@
 const axios = require('axios');
 
-class chess {
+class Chess {
+  constructor() {
+    this.baseURL = {
+      player: 'https://api.chess.com/pub/player',
+    };
+  }
+
   async getPlayer(username) {
-    const baseURL = "https://api.chess.com/pub/player";
     let response = {};
-    try {      
-      response = await axios.get(`${baseURL}/${username}`);
+    try {
+      response = await axios.get(`${this.baseURL.player}/${username}`);
     } catch (error) {
       response.status = error.response.status;
-    } 
-    
-    if(response.status !== 200)
-      return null;
-    
+    }
+
+    if (response.status !== 200) return null;
+
     return response.data;
   }
 }
 
-module.exports = new chess();
+module.exports = new Chess();
