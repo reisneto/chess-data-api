@@ -5,7 +5,7 @@
   "author": "Alvaro Reis <alvaro.neto@linx3.com>",
   "license": "MIT",
   "scripts": {
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon code/index.js"
   },
   "dependencies": {
     "express": "^4.17.1"
