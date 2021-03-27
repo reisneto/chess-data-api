@@ -1,6 +1,7 @@
 const express = require('express');
 const cache = require('./clients/Cache');
 const chessService = require('./services/chess');
+const logger = require('./utils/logger');
 
 const app = express();
 const PORT = 3000;
@@ -26,5 +27,5 @@ app.get('/username/:username', async (request, response) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`listening to port ${PORT}`);
+  logger.info(`listening to port ${PORT}`);
 });

@@ -8,4 +8,8 @@ stop:
 
 .PHONY: logs
 logs:
-	docker-compose logs -f --tail 100 api 
+	docker logs -f --tail 100 chess-data-api | ./node_modules/.bin/pino-pretty
+
+.PHONY: lint
+lint:
+	docker-compose run --rm --no-deps api /bin/sh -c 'yarn lint'
