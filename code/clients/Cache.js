@@ -15,7 +15,7 @@ class Cache {
   }
 
   async set(key, value) {
-    await this.redis.set(key, value);
+    await this.redis.set(key, JSON.stringify(value));
   }
 }
 
