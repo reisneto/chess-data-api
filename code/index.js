@@ -1,9 +1,15 @@
 const express = require('express');
+const expressPino = require('express-pino-logger');
 const cache = require('./clients/Cache');
 const chessService = require('./services/chess');
 const logger = require('./utils/logger');
 
 const app = express();
+app.use(
+  expressPino({
+    logger,
+  })
+);
 const PORT = 3000;
 
 app.get('/status', (request, response) => {
