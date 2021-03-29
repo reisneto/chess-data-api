@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "express-pino-logger": "^6.0.0",
     "ioredis": "^4.24.5",
+    "nconf": "^0.11.2",
     "pino": "^6.11.2",
     "pino-pretty": "^4.7.1"
   },

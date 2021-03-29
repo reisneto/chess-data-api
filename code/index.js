@@ -3,6 +3,7 @@ const expressPino = require('express-pino-logger');
 const cache = require('./clients/Cache');
 const chessService = require('./services/chess');
 const logger = require('./utils/logger');
+const config = require('./config');
 
 const app = express();
 app.use(
@@ -10,7 +11,6 @@ app.use(
     logger,
   })
 );
-const PORT = 3000;
 
 app.get('/status', (request, response) => {
   return response.status(200).json({ status: 'online' });
@@ -32,6 +32,9 @@ app.get('/username/:username', async (request, response) => {
   return response.status(404).json({ message: 'username not found' });
 });
 
+const PORT = config.get('express:port');
+
 app.listen(PORT, () => {
   logger.info(`listening to port ${PORT}`);
+  logger.debug(`listening to port ${PORT}`);
 });

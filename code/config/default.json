@@ -1,0 +1,12 @@
+{
+  "express": {
+    "port": 3000
+  },
+  "logger": {
+    "level": "info"
+  },
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  }
+}

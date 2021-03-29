@@ -1,3 +1,6 @@
 const pino = require('pino');
+const config = require('../config');
 
-module.exports = pino({ level: 'debug' });
+const level = config.get('logger:level');
+
+module.exports = pino({ level });

@@ -1,10 +1,11 @@
 const Redis = require('ioredis');
+const config = require('../config');
 
 class Cache {
   constructor() {
     this.redis = new Redis({
-      host: 'redis',
-      port: 6379,
+      host: config.get('redis:host'),
+      port: config.get('redis:port'),
     });
   }
 
