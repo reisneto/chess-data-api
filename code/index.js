@@ -1,18 +1,15 @@
 const express = require('express');
-const expressPino = require('express-pino-logger');
 const { ValidationError } = require('express-validation');
 const validate = require('./validation');
 const cache = require('./clients/Cache');
 const chessService = require('./services/chess');
 const logger = require('./utils/logger');
 const config = require('./config');
+const { applyMiddlewares } = require('./middlewares');
 
 const app = express();
-app.use(
-  expressPino({
-    logger,
-  })
-);
+
+applyMiddlewares(app);
 
 app.get('/status', (request, response) => {
   return response.status(200).json({ status: 'online' });
